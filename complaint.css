@@ -1,0 +1,128 @@
+
+/* Complaint form*/
+/* General Styles */
+/* General Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+    min-height: 100vh; /* Changed from height to min-height */
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    background-size: cover;
+    padding: 20px; /* Added padding to prevent content from touching the edges */
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 28px;
+    margin: 20px 0; /* Added margin for spacing */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #2c3e50;
+    border-bottom: solid 2px #0873bd;
+  }
+  
+  .main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  
+  .user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  
+  .user-input-box label {
+    width: 100%;
+    color: #34495e;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px 0;
+  }
+  
+  .user-input-box input,
+  .user-input-box select,
+  .user-input-box textarea {
+    height: 45px;
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #bdc3c7;
+    padding: 0 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .user-input-box textarea {
+    height: 120px;
+    padding: 12px;
+  }
+  
+  .user-input-box input:focus,
+  .user-input-box select:focus,
+  .user-input-box textarea:focus {
+    border-color: #0873bd;
+  }
+  
+  .small-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .small-text a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .small-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-submit-btn {
+    margin-top: 30px;
+  }
+
+
+  /*Submit form button */
+  .form-submit-btn {
+    margin-top: 30px;
+  }
+  
+  .form-submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: #3498db;
+    transition: background 0.3s ease;
+  }
+  
+  .form-submit-btn input:hover {
+    background: #2980b9;
+  }
+
