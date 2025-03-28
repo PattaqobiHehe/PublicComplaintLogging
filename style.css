@@ -5,15 +5,6 @@
     font-family: sans-serif;
   }
   
-  body {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
-    background-size: cover;
-  }
-  
   .container {
     width: 100%;
     max-width: 650px;
@@ -48,136 +39,430 @@
   }
 
 /* Google Button  */
-.button-google{
-  max-width: 320px;
+/* Fancy Google hover button made by: csozi | Website: www.csozi.hu*/
+
+.button-g {
+  padding: 10px;
+  font-weight: bold;
   display: flex;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  border-radius: 35px;
   align-items: center;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  gap: 0.75rem;
-  color: rgb(65, 63, 63);
-  background-color: #fff;
-  cursor: pointer;
-  transition: all .6s ease;
+  border: solid black 2px;
+  outline: none;
 }
 
-.button-google svg {
-  height: 24px;
+.svg {
+  height: 25px;
+  margin-right: 10px;
 }
 
-.button-google:hover {
-  transform: scale(1.02);
+.button-g .text {
+  z-index: 10;
+  font-size: 14px;
 }
 
-
-
-  .user-input-box {
-    display: flex;
-    flex-direction: column;  /* Stack label and input vertically */
-    width: calc(50% - 10px); /* Adjust width to avoid overlap */
-    padding-bottom: 15px;
+.button-g:hover .text {
+  animation: text forwards 0.3s;
+  /*color: white;*/
 }
 
-  .user-input-box label {
-    margin-bottom: 5px; /* Add margin for spacing */
-    font-size: 16px;
-}
+@keyframes text {
+  from {
+    color: black;
+  }
 
-  .user-input-box input {
-    height: 40px; /* Adjust height */
-    width: 100%;
-    padding: 8px;
-}
-
-  
-  .user-input-box input:focus {
-    border-color: #3498db;
-  }
-  
-  
-  .gender-title {
-    color: #2c3e50;
-    font-size: 22px;
-    font-weight: 600;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-  }
-  
-  .gender-category {
-    margin: 15px 0;
-    color: #34495e;
-  }
-  
-  .gender-category label {
-    padding: 0 20px 0 5px;
-    font-size: 16px;
-  }
-  
-
-  .gender-category label,
-  .gender-category input,
-  .form-submit-btn input {
-    cursor: pointer;
-  }
-  
-  .form-submit-btn {
-    margin-top: 30px;
-  }
-  
-  .form-submit-btn input {
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    font-size: 18px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
+  to {
     color: white;
-    background: #3498db;
-    transition: background 0.3s ease;
+  }
+}
+
+.svg {
+  z-index: 6;
+}
+
+.button-g:hover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border-radius: 300px;
+  animation: wave1 2.5s ease-in-out forwards;
+}
+
+.button-g:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border-radius: 300px;
+  animation: wave2 2.5s ease-in-out forwards;
+}
+
+@keyframes wave1 {
+  0% {
+    z-index: 1;
+    background: #EB4335;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  1% {
+    z-index: 1;
+    background: #EB4335;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  25% {
+    z-index: 1;
+    background: #EB4335;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  26% {
+    z-index: 3;
+    background: #34A853;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  50% {
+    z-index: 3;
+    background: #34A853;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  70% {
+    z-index: 3;
+    background: #34A853;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 3;
+    background: #34A853;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+}
+
+@keyframes wave2 {
+  0% {
+    z-index: 2;
+    background: #FBBC05;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  11% {
+    z-index: 2;
+    background: #FBBC05;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  35% {
+    z-index: 2;
+    background: #FBBC05;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  39% {
+    z-index: 2;
+    background: #FBBC05;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  40% {
+    z-index: 4;
+    background: #4285F4;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  64% {
+    z-index: 4;
+    background: #4285F4;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+
+  100% {
+    z-index: 4;
+    background: #4285F4;
+    width: 800px;
+    height: 800px;
+    opacity: 1;
+  }
+}
+
+.button-g:hover .red {
+  animation: disappear 0.1s forwards;
+  animation-delay: 0.1s;
+}
+
+.button-g:hover .yellow {
+  animation: disappear 0.1s forwards;
+  animation-delay: 0.3s;
+}
+
+.button-g:hover .green {
+  animation: disappear 0.1s forwards;
+  animation-delay: 0.7s;
+}
+
+.button-g:hover .blue {
+  animation: disappear 0.1s forwards;
+  animation-delay: 1.1s;
+}
+
+@keyframes disappear {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(100);
+  }
+}
+
+/* Add to your style.css */
+.dev-mode-bypass-notice {
+  color: #ff5722;
+  background: #fff3e0;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ffcc80;
+}
+
+.separator {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  color: #666;
+  font-weight: bold;
+  position: relative;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #ddd;
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+.usernametip {
+  position: relative;
+  display: inline-block;
+  margin-left: 4px;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+}
+
+.usernametip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.usernametip .tooltip {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  margin-bottom: 2px;
+  background-color: #4c6daf;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+}
+
+
+  .email-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    width: 100%;
   }
   
-  .form-submit-btn input:hover {
-    background: #2980b9;
+  .email-container .user-input-box {
+    flex: 1;
+    margin-bottom: 0;
   }
+  
+  .email-container .bt {
+    margin-bottom: 17px; 
+    height: 40px; 
+    width: 90px; 
+  } 
+  
+.gender-title {
+  color: #2c3e50;
+  font-size: 22px; 
+  margin-bottom: 8px;
+  border-bottom: 2px solid #3498db;
+}
+
+
+
+.radio-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 10px;
+}
+
+.radio-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-button__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-button__label {
+  display: inline-block;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 16px;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.radio-button__custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.radio-button__input:checked + .radio-button__label .radio-button__custom {
+  transform: translateY(-50%) scale(0.9);
+  border: 5px solid #3498db;
+  color: #3498db;
+}
+
+.radio-button__input:checked + .radio-button__label {
+  color: #3498db;
+}
+
+.radio-button__label:hover .radio-button__custom {
+  transform: translateY(-50%) scale(1.2);
+  border-color: #3498db;
+  box-shadow: 0 0 10px #4c8bf580;
+}
+
+
   /* Send OTP Button */
 
   .bt {
-    margin-top: 10px;
     border: none;
     user-select: none;
     font-size: 13px;
     color: white;
     text-align: center;
     background-color: #0873bd;
-    box-shadow: #cacaca 2px 2px 10px 1px;
     border-radius: 8px;
-    height: 30px;
-    width: 90px;
     transition: all 0.1s ease;
     position: relative;
   }
-  
+ 
   .msg {
     height: 0;
     width: 0;
     border-radius: 2px;
-    position: absolute;
+    position: absolute; 
     left: 15%;
     top: 25%;
   }
   
   .bt:active {
     transition: all 0.001s ease;
-    background-color: #5d9fcd;
-    box-shadow: #97989a 0 0 0 0;
+    background-color: #56565b;
     transform: translateX(1px) translateY(1px);
   }
   
@@ -222,6 +507,9 @@
       border-right: transparent 12px solid;
     }
   }
+
+
+  
   /* OTP Modal Styles */
 .otp-modal {
   display: none;
@@ -280,7 +568,7 @@
   text-align: center;
   border: none;
   border-radius: 7px;
-  caret-color: rgb(127, 129, 255);
+  caret-color: #0873bd(127, 129, 255);
   color: rgb(44, 44, 44);
   outline: none;
   font-weight: 600;
@@ -305,7 +593,7 @@
 }
 
 .verifyButton:hover {
-  background-color: #5d9fcd;
+  background-color: #56565b;
   transition-duration: 0.2s;
 }
 
@@ -344,29 +632,14 @@
   font-weight: 700;
 }
       
-/* Check Password button */
-#checkPasswordButton {
-  margin-top: 10px;
-  padding: 5px 10px;
-  height: 35px;
-  width: 120px;
-  font-size: 13px;
-  box-shadow: #cacaca 2px 2px 10px 1px;
-  background-color: #0873bd;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-#checkPasswordButton:hover {
-  background-color: #5d9fcd;
-}
-
-#passwordMatchIcon {
-  margin-left: 10px;
-  color: green;
-  font-size: 18px;
+.invalid {
+  border-color: red !important; /* Highlight the input field in red if invalid */
 }
 
 
@@ -384,11 +657,11 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Changed from center to flex-start */
-  min-height: 100vh; /* Changed from height to min-height */
-  background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+  align-items: flex-start; 
+  min-height: 100vh; 
+  background: linear-gradient(90deg, #e2e2e2, #353e48);
   background-size: cover;
-  padding: 20px; /* Added padding to prevent content from touching the edges */
+  padding: 20px; 
 }
 
 .container {
@@ -396,7 +669,7 @@ body {
   max-width: 650px;
   background: rgba(255, 255, 255, 0.9);
   padding: 28px;
-  margin: 20px 0; /* Added margin for spacing */
+  margin: 20px 0; 
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
@@ -474,21 +747,26 @@ body {
 .form-submit-btn {
   margin-top: 30px;
 }
-
-/* Register (submit Button) */
-.form-submit-btn input {
-  display: block;
-  width: 100%;
+.form-submit-btn {
   margin-top: 10px;
+  width: 100%; 
+  text-align: center; 
+}
+
+.form-submit-btn input {
+  display: inline-block; 
+  width: 600px; 
+  padding: 12px 24px; 
   font-size: 18px;
-  padding: 12px;
-  border: none;
+  border: none; 
   border-radius: 8px;
   color: white;
   background: #0873bd;
   transition: background 0.3s ease;
+  cursor: pointer;
 }
 
-.form-submit-btn input:hover {
-  background: #5d9fcd;
+.form-submit-btn input:active {
+  background: #56565b;
 }
+
