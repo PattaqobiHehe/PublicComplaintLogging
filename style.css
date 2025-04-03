@@ -633,16 +633,24 @@
 }
       
 .error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
+  color: #d32f2f;
+  font-size: 0.8rem;
+  margin-top: 2px;
 }
 
 .invalid {
-  border-color: red !important; /* Highlight the input field in red if invalid */
+  border-color: #d32f2f !important;
 }
 
+.email-container {
+  position: relative;
+}
 
+.email-container .error-message {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+}
 
 /* Complaint form*/
 /* General Styles */
@@ -659,7 +667,7 @@ body {
   justify-content: center;
   align-items: flex-start; 
   min-height: 100vh; 
-  background: linear-gradient(90deg, #e2e2e2, #353e48);
+  background: linear-gradient(90deg, #e2e2e2, #696a6d);
   background-size: cover;
   padding: 20px; 
 }
