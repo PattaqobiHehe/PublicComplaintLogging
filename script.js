@@ -1,3 +1,5 @@
+const devMode = true; // or false for production
+
 // Google Sign-In and Form Validation Script
 function handleCredentialResponse(response) {
   if (devMode) {
@@ -115,22 +117,28 @@ function initFormValidation() {
     },
   };
 
-  // Add validation to all required inputs
+  // Only keep input event listeners for clearing errors
   document.querySelectorAll("input[required], select[required], textarea[required]").forEach((input) => {
     if (input.type === "radio" || input.type === "checkbox") return;
-
-    input.addEventListener("blur", () => validateInput(input, validationConfig));
     input.addEventListener("input", () => clearError(input));
   });
 
   // Form submission handler
-  document.getElementById("registrationForm").addEventListener("submit", function(e) {
-    if (!validateForm(validationConfig)) {
-      e.preventDefault();
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  // First validate the form (this will show any errors)
+  if (validateForm(validationConfig)) {
+    // If validation passes and OTP is verified, submit the form
+    if (isEmailVerified) {
+      this.submit();
+    } else {
+      // If validation passes but OTP isn't verified, show OTP error
+      showError(document.getElementById('email'), "Please verify your email with OTP first");
     }
-  });
+  }
+});
 }
-
 function validateForm(validationConfig) {
   let isValid = true;
   
@@ -153,6 +161,11 @@ function validateForm(validationConfig) {
     isValid = false;
   }
 
+  // Check if email is verified via OTP
+  if (!isEmailVerified) {
+    showError(document.getElementById('email'), "Please verify your email with OTP first");
+    isValid = false;
+  }
 
   return isValid;
 }
