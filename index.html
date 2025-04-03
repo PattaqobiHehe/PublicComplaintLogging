@@ -104,7 +104,7 @@
           
           <!-- Register Button -->
           <div class="form-submit-btn">
-            <input type="submit" id="registerBtn" value="Register" disabled />
+            <input type="submit" id="registerBtn" value="Register"  />
           </div>
           
           <p class="login-link">
@@ -173,24 +173,26 @@
 
   // Keep all other functions exactly as they were
   function verifyOtp() {
-    const otp1 = document.getElementById('otp-input1').value;
-    const otp2 = document.getElementById('otp-input2').value;
-    const otp3 = document.getElementById('otp-input3').value;
-    const otp4 = document.getElementById('otp-input4').value;
-    const enteredOtp = otp1 + otp2 + otp3 + otp4;
+  const otp1 = document.getElementById('otp-input1').value;
+  const otp2 = document.getElementById('otp-input2').value;
+  const otp3 = document.getElementById('otp-input3').value;
+  const otp4 = document.getElementById('otp-input4').value;
+  const enteredOtp = otp1 + otp2 + otp3 + otp4;
 
-    if (enteredOtp === generatedOtp) { // Will compare against "1234"
-      isEmailVerified = true;
-      document.getElementById('registerBtn').disabled = false;
-      document.getElementById('bt').textContent = 'Verified ✓';
-      document.getElementById('bt').style.backgroundColor = '#4CAF50';
-      closeOtpModal();
-      alert('Email verified successfully!');
-    } else {
-      alert('Invalid OTP. Please try again.');
-    }
+  if (enteredOtp === generatedOtp) {
+    isEmailVerified = true; // Set verification flag
+    document.getElementById('bt').textContent = 'Verified ✓';
+    document.getElementById('bt').style.backgroundColor = '#4CAF50';
+    closeOtpModal();
+    
+    // Clear any existing email verification error
+    clearError(document.getElementById('email'));
+    
+    alert('Email verified successfully!');
+  } else {
+    alert('Invalid OTP. Please try again.');
   }
-
+}
       // Function to close OTP modal
       function closeOtpModal() {
         document.getElementById('otpModal').style.display = 'none';
