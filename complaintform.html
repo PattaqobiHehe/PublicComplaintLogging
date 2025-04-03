@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="complaint.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="icon" href="notepad32x32.png">
+    <script src="complaint.js"></script>
+
 
   </head>
   <body>
@@ -96,11 +98,32 @@
           <input type="text" id="subject" name="subject" placeholder="Subject / Regarding" required />
         </div>
 
-        <!-- Photo Upload -->
         <div class="user-input-box">
-          <label for="photo">Photo / फोटो *</label>
-          <input type="file" id="photo" name="photo" accept="image/*" required />
-          <p class="small-text">(Max upto 2MB)</p>
+          <label for="photo">Photos / फोटो *</label>
+          
+          <div class="file-upload-container">
+            <!-- Styled upload button - REMOVE the outer label tag -->
+            <button type="button" class="upload-button" onclick="document.getElementById('photo').click()">
+              <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-width="2" stroke="#ffffff" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke-linejoin="round" stroke-linecap="round"></path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#ffffff" d="M17 15V18M17 21V18M17 18H14M17 18H20"></path>
+              </svg>
+              ADD FILES
+            </button>
+            <input type="file" id="photo" name="photo" accept="image/*,.heic" multiple style="display: none;">
+            
+            <!-- File info and preview section -->
+            <div class="file-preview-container">
+              <div class="file-info">
+                <p>No files selected (Max: 1GB total)</p>
+              </div>
+              <div class="preview-area"></div>
+            </div>
+          </div>
+          <button id="remove-file" class="remove-btn" style="display: none;">
+            REMOVE ALL
+          </button>
+          <p class="small-text">Accepted formats: JPG, PNG, HEIC (Max 1GB total)</p>
         </div>
 
         <!-- Complaint Description -->
@@ -118,19 +141,16 @@
         </div>
       </form>
     </div>
-
-    <!--JavaScript file-->
-    <script src="complaint.js"></script>
     <script>
       function updateSubDepartments() {
         const department = document.getElementById('department').value;
         const subDepartment = document.getElementById('subDepartment');
         const complaintType = document.getElementById('complaintType');
-
+      
         // Clear existing options
         subDepartment.innerHTML = '<option value="">-Select-</option>';
         complaintType.innerHTML = '<option value="">-Select-</option>';
-
+      
         if (department === 'environment') {
           subDepartment.innerHTML += '<option value="environment">Environment / पर्यावरण</option>';
         } else if (department === 'advertisement') {
@@ -174,7 +194,7 @@
           subDepartment.innerHTML += '<option value = "waterDept">Water Department/जलप्रदाय विभाग</option>';
         }
       }
-
+      
       function updateComplaintTypes() {
         const subDepartment = document.getElementById('subDepartment').value;
         const complaintType = document.getElementById('complaintType');
@@ -308,6 +328,6 @@
           complaintType.innerHTML += '<option value="changeWater">Unauthorized use of water change of user (वापरकर्त्याचे पाणी-बदलाचा अनधिकृत वापर)</option>';
         }
   }
-    </script>
+      </script>
   </body>
 </html>
